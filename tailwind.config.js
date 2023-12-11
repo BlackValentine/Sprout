@@ -5,11 +5,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#4A3AFF",
+        primary: "#686736",
+        secondary: "#3E332C",
+        orange: "#BD5A08",
+        timberwolf: "#D9D4C9",
+        gray2: "#050505",
       },
       backgroundImage: {
         Hero: "url('assets/Hero.png')",
       },
+      gridTemplateColumns: {
+        'category': "2fr 1fr",
+        'story': "1fr 2fr"
+      }
     },
   },
   plugins: [],
