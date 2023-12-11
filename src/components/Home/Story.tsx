@@ -9,7 +9,7 @@ export default function Story() {
         me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your
         users know a little more about you.
       </p>
-      <button className="w-[140px] h-[55px] flex border border-white border-solid rounded bg-transparent hover:bg-secondary ease-in duration-300">
+      <button className="w-[140px] h-[55px] flex border border-white border-solid rounded bg-transparent hover:bg-secondary hover:border-none ease-in duration-300">
         <span className="m-auto text-lg">Our story</span>
       </button>
     </div>

@@ -1,5 +1,7 @@
 // import PageNotFound from 'layout/404';
 import MenuLayout from 'layout/MenuLayout';
+import Care from 'pages/Category/Care';
+import Category from 'pages/Category/Category';
 import Contact from 'pages/Helpful/Contact';
 import FAQ from 'pages/Helpful/FAQ';
 import ShippingReturns from 'pages/Helpful/ShippingReturns';
@@ -24,6 +26,8 @@ const MainRoutes = () => (
       <Route path="/shipping-and-returns" element={<ShippingReturns />} />
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/our-story" element={<Story />} />
+      <Route path="/sprout/care" element={<Care />} />
+      <Route path="/sprout/category" element={<Category />} />
       {/* <Route path={EnumPathRouters.dashboard} element={<div>Dashboard</div>} />
       <Route
         path={EnumPathRouters.reports123}

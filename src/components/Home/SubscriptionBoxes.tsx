@@ -20,7 +20,7 @@ export default function SubscriptionBoxes() {
           <img src={logo3} alt="logo2" className="w-20 border border-white border-solid py-10 px-3 rounded-full" />
           <span className="max-w-[120px] text-xl">Exotic Plants Subscription</span>
         </div>
-        <button className="px-6 h-[55px] flex border border-white border-solid rounded bg-transparent hover:bg-secondary ease-in duration-300">
+        <button className="px-6 h-[55px] flex border border-white border-solid rounded bg-transparent hover:bg-secondary hover:border-none ease-in duration-300">
           <span className="m-auto text-lg">Subscription Boxes</span>
         </button>
       </div>

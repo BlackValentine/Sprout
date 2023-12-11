@@ -55,7 +55,7 @@ export default function Footer() {
         {
           text: 'Care',
           route: true,
-          link: '/care',
+          link: '/sprout/care',
         },
       ],
     },
