@@ -51,11 +51,18 @@ const classNames = (...classes: string[]): string => {
   return classes.filter(Boolean).join(' ');
 };
 
+const renderSku = (id: number): string => {
+  if (id < 10) return `00${id}`;
+  else if (id >= 10 && id < 100) return `0${id}`;
+  else return `${id}`;
+};
+
 export default {
   func: {
     convertObjectDefLocale,
     parseSafely,
     getValueFromStorage,
     classNames,
+    renderSku,
   },
 };

@@ -1,29 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from 'components/General/Footer';
 import Header from 'components/General/Header';
-import Product from '../../assets/images/product1-1.webp';
 import Heart from '../../assets/svg/empty-heart.svg';
 import { Collapse } from 'react-collapse';
 import PlusIcon from '../../assets/svg/plus.svg';
 import RelatedProduct from 'components/General/RelatedProduct';
+import { useParams } from 'react-router-dom';
+import { getProductById } from 'config/axios/productApi';
+import functions from 'utilities/functions';
 
 export default function ProductDetail() {
   const [isOpenProductInfo, setIsOpenProductInfo] = useState<boolean>(true);
   const [isOpenReturnRefund, setIsOpenReturnRefund] = useState<boolean>(false);
   const [isOpenShippingInfo, setIsOpenShippingInfo] = useState<boolean>(false);
   const [quantity, setQuantity] = useState<number>(1);
+  const [productDetail, setProductDetail] = useState<any>({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      if (id) {
+        const response = await getProductById(+id);
+        setProductDetail(response);
+      }
+    })();
+  }, []);
 
   return (
     <div className="bg-black">
       <Header />
       <div className="max-w-6xl grid grid-cols-2 gap-10 mx-auto mt-6 p-10 bg-timberwolf">
-        <div className="flex flex-col border border-solid border-primary">
-          <img src={Product} alt="product" />
+        <div>
+          <div className="flex flex-col border border-solid border-primary">
+            <img src={productDetail?.image} alt="product" />
+          </div>
         </div>
         <div className="flex flex-col text-gray2">
-          <h3 className="text-3xl font-forum mb-4">Wooden Basket</h3>
-          <span className="text-lg mb-5">SKU: 015</span>
-          <span className="text-xl mb-5">$28.99</span>
+          <h3 className="text-3xl font-forum mb-4">{productDetail?.name}</h3>
+          <span className="text-lg mb-5">SKU: {functions.func.renderSku(productDetail?.id)}</span>
+          <span className="text-xl mb-5">${productDetail?.price / 100}</span>
           <div className="flex flex-col gap-1 mb-8">
             <span>Quantity</span>
             <input
@@ -60,13 +75,7 @@ export default function ProductDetail() {
               />
             </div>
             <Collapse isOpened={isOpenProductInfo}>
-              <p className="text-gray2">
-                I’m a product detail. I’m a great place to add more information about your product such as sizing,
-                material, care and cleaning instructions. This is also a great space to write what makes this product
-                special and how your customers can benefit from this item. Buyers like to know what they’re getting
-                before they purchase, so give them as much information as possible so they can buy with confidence and
-                certainty.
-              </p>
+              <p className="text-gray2">{productDetail?.description}</p>
             </Collapse>
           </div>
           <div className="pb-4 border-b border-solid border-gray2 mt-5">

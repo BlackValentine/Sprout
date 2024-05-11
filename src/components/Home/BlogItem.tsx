@@ -53,7 +53,7 @@ export default function BlogItem({
           </div>
         </div>
       </div>
-      <h6 className="text-3xl font-forum hover:text-orange cursor-pointer">{title}</h6>
+      <h6 className="text-3xl font-forum hover:text-orange cursor-pointer line-clamp-1">{title}</h6>
       <p className="mt-4 mb-6">{description}</p>
       <div className="flex items-center justify-between text-xs border-t border-solid border-gray2 pt-3">
         <div className="flex items-center gap-5">

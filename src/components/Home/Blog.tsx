@@ -42,7 +42,7 @@ export default function Blog() {
   ];
 
   return (
-    <div className="px-10 pt-20 bg-timberwolf">
+    <div className="px-10 py-20 bg-timberwolf">
       <h6 className="text-[20px] text-gray2">Our Blog</h6>
       <div className="flex items-center justify-between mb-20">
         <h2 className="text-[60px] font-forum text-gray2">Your Guide to Plant Care</h2>

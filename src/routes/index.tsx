@@ -1,4 +1,5 @@
 // import PageNotFound from 'layout/404';
+// import Loading from 'components/Loading';
 import MenuLayout from 'layout/MenuLayout';
 import Care from 'pages/Category/Care';
 import Category from 'pages/Category/Category';
@@ -17,18 +18,21 @@ import { Route, Routes } from 'react-router-dom';
 // const ProfilePage = React.lazy(() => import('pages/Login'));
 
 const MainRoutes = () => (
-  <Routes>
-    <Route path="/" element={<MenuLayout />}>
-      <Route path="/" element={<Home />} />
-      <Route path="/:id" element={<ProductDetail />} />
-      <Route path="/faq" element={<FAQ />} />
-      <Route path="/terms-and-conditions" element={<TermsConditions />} />
-      <Route path="/shipping-and-returns" element={<ShippingReturns />} />
-      <Route path="/contact-us" element={<Contact />} />
-      <Route path="/our-story" element={<Story />} />
-      <Route path="/sprout/care" element={<Care />} />
-      <Route path="/sprout/category" element={<Category />} />
-      {/* <Route path={EnumPathRouters.dashboard} element={<div>Dashboard</div>} />
+  <div>
+    {/* <Loading /> */}
+
+    <Routes>
+      <Route path="/" element={<MenuLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/terms-and-conditions" element={<TermsConditions />} />
+        <Route path="/shipping-and-returns" element={<ShippingReturns />} />
+        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/our-story" element={<Story />} />
+        <Route path="/sprout/care" element={<Care />} />
+        <Route path="/sprout/category" element={<Category />} />
+        {/* <Route path={EnumPathRouters.dashboard} element={<div>Dashboard</div>} />
       <Route
         path={EnumPathRouters.reports123}
         // element={<Tabs props={{ userName: 'Bikash web' }} />}
@@ -44,8 +48,9 @@ const MainRoutes = () => (
         <Route path={EnumPathRouters.settings} element={<div>Setting</div>} />
       </Route>
       <Route path={EnumPathRouters.calendar} element={<div>Calender</div>} /> */}
-    </Route>
-  </Routes>
+      </Route>
+    </Routes>
+  </div>
 );
 
 export default MainRoutes;

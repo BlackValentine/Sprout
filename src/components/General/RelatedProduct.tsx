@@ -95,12 +95,12 @@ export default function RelatedProduct() {
                     src={productItem.image}
                     alt="product"
                   />
-                  <div className="absolute top-0 left-0 bg-primary px-3">New Arrival</div>
+                  <div className="absolute top-1 left-1 bg-primary px-3 rounded">New Arrival</div>
                 </div>
                 <div className="flex flex-col mt-4 text-white">
                   <h6 className=" font-normal">{productItem.name}</h6>
                   <span>${+productItem.price / 100}</span>
-                  <button className="w-full px-4 py-2 border border-white border-solid mt-2 rounded">
+                  <button className="w-full px-4 py-2 border border-white border-solid mt-2 rounded hover:bg-white hover:text-black transition ease-out duration-200">
                     Add to Cart
                   </button>
                 </div>
