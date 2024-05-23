@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import Account from '../../assets/svg/account.svg';
 import Search from '../../assets/svg/search.svg';
 import Logo from './Logo';
+import { useCartStore } from 'store/cart-store';
+import { ShoppingCartOutlined } from '@ant-design/icons';
 
 export default function Header() {
   const navigate = useNavigate();
+  const { setIsOpen } = useCartStore();
   const [showFirstBanner, setShowFirstBanner] = useState<boolean>(true);
 
   useEffect(() => {
@@ -73,6 +76,7 @@ export default function Header() {
             <img src={Search} alt="account" className="w-4" />
             <span>Search</span>
           </div>
+          <ShoppingCartOutlined onClick={setIsOpen} className="cursor-pointer" style={{ fontSize: 24 }} />
         </div>
       </div>
     </>

@@ -3,7 +3,6 @@ import React from 'react';
 import './index.scss';
 import Story1 from '../../assets/images/story1.webp';
 import Story2 from '../../assets/images/story2.webp';
-import Footer from 'components/General/Footer';
 
 export default function Story() {
   return (
@@ -57,7 +56,6 @@ export default function Story() {
         </div>
         <img src={Story2} alt="story" className="h-full object-cover" />
       </div>
-      <Footer />
     </div>
   );
 }

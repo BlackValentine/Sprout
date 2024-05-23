@@ -12,16 +12,16 @@ import ScrollToTop from 'utilities/scrollToTop';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-  <React.StrictMode>
-    <I18nextProvider i18n={i18n}>
-      <BrowserRouter>
-        <React.Suspense fallback="Loading app ...">
-          <ScrollToTop />
-          <App />
-        </React.Suspense>
-      </BrowserRouter>
-    </I18nextProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <I18nextProvider i18n={i18n}>
+    <BrowserRouter>
+      <React.Suspense fallback="Loading app ...">
+        <ScrollToTop />
+        <App />
+      </React.Suspense>
+    </BrowserRouter>
+  </I18nextProvider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

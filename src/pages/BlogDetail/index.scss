@@ -1,0 +1,44 @@
+.blog-content {
+  color: white;
+
+  h1 {
+    font-family: 'forum serif';
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-family: 'forum serif';
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    font-family: 'forum serif';
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  blockquote {
+    font-family: 'forum serif';
+    padding-left: 20px;
+    border-left: 3px solid rgb(190, 90, 9);
+    margin-bottom: 30px;
+    font-size: 34px;
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
+  img {
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: circle;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+}

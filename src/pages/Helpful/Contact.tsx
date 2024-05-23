@@ -1,13 +1,10 @@
-import Footer from 'components/General/Footer';
-import Header from 'components/General/Header';
 import Select from 'components/General/Select';
 import React from 'react';
 import Banner from '../../assets/images/contact-banner.webp';
 
 export default function Contact() {
   return (
-    <div className="bg-black">
-      <Header />
+    <>
       <div className="mb-10">
         <h1 className="text-[90px] font-forum text-center my-10">How to Reach Out</h1>
         <div className="grid grid-cols-2 mx-10 border border-solid border-white">
@@ -52,7 +49,6 @@ export default function Contact() {
           Submit
         </button>
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }

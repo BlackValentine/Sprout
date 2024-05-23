@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Footer from 'components/General/Footer';
-import Header from 'components/General/Header';
 import Heart from '../../assets/svg/empty-heart.svg';
 import { Collapse } from 'react-collapse';
 import PlusIcon from '../../assets/svg/plus.svg';
@@ -27,8 +25,7 @@ export default function ProductDetail() {
   }, []);
 
   return (
-    <div className="bg-black">
-      <Header />
+    <>
       <div className="max-w-6xl grid grid-cols-2 gap-10 mx-auto mt-6 p-10 bg-timberwolf">
         <div>
           <div className="flex flex-col border border-solid border-primary">
@@ -129,7 +126,6 @@ export default function ProductDetail() {
         </div>
       </div>
       <RelatedProduct />
-      <Footer />
-    </div>
+    </>
   );
 }

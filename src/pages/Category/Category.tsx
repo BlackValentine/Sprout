@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Footer from 'components/General/Footer';
-import Header from 'components/General/Header';
 import ChevronIcon from '../../assets/svg/chevron-white.svg';
 import ProductItem from '../../components/Home/ProductItem';
 import AllProductBanner from '../../assets/images/all-products-banner.webp';
@@ -126,80 +124,76 @@ export default function Category() {
   };
 
   return (
-    <div className="bg-black">
-      <Header />
-      <div className="mx-10">
-        <div className="flex items-center">
-          <span>Home</span>
-          <img src={ChevronIcon} alt="chevron" className="-rotate-90" />
-          <span>{renderProductLink(categoryType)}</span>
-        </div>
-        <div className="flex gap-10 mt-10">
-          <div className="w-[300px]">
-            <h6 className="text-3xl pb-5 border-b border-solid border-white">Browse by</h6>
-            <div className="flex flex-col gap-1 mt-5">
-              <button
-                className={`${
-                  categoryType === CategoryEnum.ALL ? 'font-bold text-lg' : 'font-normal'
-                } hover:text-primary text-left`}
-                onClick={() => handleGetAllProducts(CategoryEnum.ALL, 1, 20, null, 0, 0)}
-              >
-                All Products
-              </button>
-              {categories?.map((category) => {
-                return (
-                  <button
-                    className={`${
-                      categoryType === category.type ? 'font-bold text-lg' : 'font-normal'
-                    } hover:text-primary text-left`}
-                    onClick={() => handleGetAllProducts(category.type, 1, 20, category.id, 0, 0)}
-                    key={category.id}
-                  >
-                    {category.name}
-                  </button>
-                );
-              })}
-              <button
-                className={`${
-                  categoryType === CategoryEnum.NEWS ? 'font-bold text-lg' : 'font-normal'
-                } hover:text-primary text-left`}
-                onClick={() => handleGetAllProducts(CategoryEnum.NEWS, 1, 20, null, 0, 1)}
-              >
-                New Arrivals
-              </button>
-              <button
-                className={`${
-                  categoryType === CategoryEnum.SALE ? 'font-bold text-lg' : 'font-normal'
-                } hover:text-primary text-left`}
-                onClick={() => handleGetAllProducts(CategoryEnum.SALE, 1, 20, null, 1, 0)}
-              >
-                Sale
-              </button>
-            </div>
+    <div className="mx-10">
+      <div className="flex items-center">
+        <span>Home</span>
+        <img src={ChevronIcon} alt="chevron" className="-rotate-90" />
+        <span>{renderProductLink(categoryType)}</span>
+      </div>
+      <div className="flex gap-10 mt-10">
+        <div className="w-[300px]">
+          <h6 className="text-3xl pb-5 border-b border-solid border-white">Browse by</h6>
+          <div className="flex flex-col gap-1 mt-5">
+            <button
+              className={`${
+                categoryType === CategoryEnum.ALL ? 'font-bold text-lg' : 'font-normal'
+              } hover:text-primary text-left`}
+              onClick={() => handleGetAllProducts(CategoryEnum.ALL, 1, 20, null, 0, 0)}
+            >
+              All Products
+            </button>
+            {categories?.map((category) => {
+              return (
+                <button
+                  className={`${
+                    categoryType === category.type ? 'font-bold text-lg' : 'font-normal'
+                  } hover:text-primary text-left`}
+                  onClick={() => handleGetAllProducts(category.type, 1, 20, category.id, 0, 0)}
+                  key={category.id}
+                >
+                  {category.name}
+                </button>
+              );
+            })}
+            <button
+              className={`${
+                categoryType === CategoryEnum.NEWS ? 'font-bold text-lg' : 'font-normal'
+              } hover:text-primary text-left`}
+              onClick={() => handleGetAllProducts(CategoryEnum.NEWS, 1, 20, null, 0, 1)}
+            >
+              New Arrivals
+            </button>
+            <button
+              className={`${
+                categoryType === CategoryEnum.SALE ? 'font-bold text-lg' : 'font-normal'
+              } hover:text-primary text-left`}
+              onClick={() => handleGetAllProducts(CategoryEnum.SALE, 1, 20, null, 1, 0)}
+            >
+              Sale
+            </button>
           </div>
-          <div>
-            {renderBanner(categoryType)}
-            <div className="grid grid-cols-2 2xl:grid-cols-3 gap-10">
-              {products.map((productItem) => {
-                return (
-                  <ProductItem
-                    key={productItem?.id}
-                    id={productItem?.id}
-                    image={productItem?.image}
-                    hoverImage={productItem?.hoverImage}
-                    name={productItem?.name}
-                    price={productItem?.price}
-                    isSale={productItem?.isSale}
-                    isNewArrival={productItem?.isNewArrival}
-                    salePercentage={productItem?.salePercentage}
-                  />
-                );
-              })}
-            </div>
+        </div>
+        <div>
+          {renderBanner(categoryType)}
+          <div className="grid grid-cols-2 2xl:grid-cols-3 gap-10">
+            {products.map((productItem) => {
+              return (
+                <ProductItem
+                  key={productItem?.id}
+                  id={productItem?.id}
+                  image={productItem?.image}
+                  hoverImage={productItem?.hoverImage}
+                  name={productItem?.name}
+                  price={productItem?.price}
+                  isSale={productItem?.isSale}
+                  isNewArrival={productItem?.isNewArrival}
+                  salePercentage={productItem?.salePercentage}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

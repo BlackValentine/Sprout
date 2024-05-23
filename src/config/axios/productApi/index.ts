@@ -5,7 +5,6 @@ export const getAllProduct = async (payload: any) => {
   let url = '/product?';
   Object.values(payload).forEach((value, index) => {
     if (value) {
-      console.log(Object.keys(payload)[index], value);
       url = url + `${Object.keys(payload)[index]}=${value}&`;
     }
   });

@@ -1,6 +1,10 @@
 // import PageNotFound from 'layout/404';
 // import Loading from 'components/Loading';
+import Loading from 'components/Loading';
+import HomeLayout from 'layout/HomeLayout';
 import MenuLayout from 'layout/MenuLayout';
+import BlogDetail from 'pages/BlogDetail';
+import Cart from 'pages/Cart';
 import Care from 'pages/Category/Care';
 import Category from 'pages/Category/Category';
 import Contact from 'pages/Helpful/Contact';
@@ -9,21 +13,20 @@ import ShippingReturns from 'pages/Helpful/ShippingReturns';
 import Story from 'pages/Helpful/Story';
 import TermsConditions from 'pages/Helpful/TermsConditions';
 import Home from 'pages/Home';
+import Wrapper from 'pages/Payment/Wrapper';
 import ProductDetail from 'pages/ProductDetail';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import PermissionDenied from './components/PermissionDenied';
-// import ProtectedRoutes from './components/ProtectedRoutes';
-// import PublicRoutes from './components/PublicRoutes';
-// const ProfilePage = React.lazy(() => import('pages/Login'));
 
 const MainRoutes = () => (
   <div>
-    {/* <Loading /> */}
+    <Loading />
 
     <Routes>
-      <Route path="/" element={<MenuLayout />}>
+      <Route path="/" element={<HomeLayout />}>
         <Route path="/" element={<Home />} />
+      </Route>
+      <Route path="/" element={<MenuLayout />}>
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/terms-and-conditions" element={<TermsConditions />} />
@@ -31,23 +34,10 @@ const MainRoutes = () => (
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/our-story" element={<Story />} />
         <Route path="/sprout/care" element={<Care />} />
+        <Route path="/sprout/care/:id" element={<BlogDetail />} />
         <Route path="/sprout/category" element={<Category />} />
-        {/* <Route path={EnumPathRouters.dashboard} element={<div>Dashboard</div>} />
-      <Route
-        path={EnumPathRouters.reports123}
-        // element={<Tabs props={{ userName: 'Bikash web' }} />}
-      >
-        <Route path={EnumPathRouters.reports123} element={<Navigate replace to={EnumPathRouters.insights} />} />
-        <Route path={EnumPathRouters.insights} element={<div>Tab1</div>} />
-        <Route path={EnumPathRouters.automations} element={<ProtectedRoutes roleRequired="USER" />}>
-          <Route path={EnumPathRouters.automations} element={<div>Tab2</div>} />
-        </Route>
-        <Route path={EnumPathRouters.reports2} element={<ProfilePage />} />
-      </Route>
-      <Route path={EnumPathRouters.settings} element={<ProtectedRoutes roleRequired="USER" />}>
-        <Route path={EnumPathRouters.settings} element={<div>Setting</div>} />
-      </Route>
-      <Route path={EnumPathRouters.calendar} element={<div>Calender</div>} /> */}
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/payment" element={<Wrapper />} />
       </Route>
     </Routes>
   </div>

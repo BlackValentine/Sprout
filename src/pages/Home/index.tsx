@@ -1,4 +1,3 @@
-import Footer from 'components/General/Footer';
 import Arrival from 'components/Home/Arrival';
 import Banner from 'components/Home/Banner';
 import Blog from 'components/Home/Blog';
@@ -17,7 +16,6 @@ export default function Home() {
       <Story />
       <SubscriptionBoxes />
       <Blog />
-      <Footer />
     </>
   );
 }

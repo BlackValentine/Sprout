@@ -2,7 +2,6 @@ import i18n from 'config/i18n';
 import { useOnMount } from 'hooks/useOnMount';
 import React from 'react';
 import MainRoutes from 'routes';
-import UserWrapperContext from 'store/UserContext';
 import { EnumLanguages } from 'ts/enum/locale';
 import utilities from 'utilities';
 import './App.scss';
@@ -18,11 +17,9 @@ function App() {
   });
 
   return (
-    <UserWrapperContext>
-      <div className="app">
-        <MainRoutes />
-      </div>
-    </UserWrapperContext>
+    <div className="app">
+      <MainRoutes />
+    </div>
   );
 }
 

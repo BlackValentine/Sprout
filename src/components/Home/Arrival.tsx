@@ -13,9 +13,8 @@ export default function Arrival() {
       });
       setProducsts(response.data);
     })();
-  });
+  }, []);
 
-  console.log(products);
   return (
     <div className="px-10 py-16 bg-timberwolf">
       <div className="flex items-center justify-between mb-16">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCartStore } from 'store/cart-store';
 
 interface IProductItemProps {
   id: number;
@@ -22,6 +23,7 @@ export default function ProductItem({
   isNewArrival,
   salePercentage,
 }: IProductItemProps) {
+  const { setIsOpen } = useCartStore();
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const handleMouseOver = () => {
@@ -42,6 +44,50 @@ export default function ProductItem({
     } else {
       return <span className="text-xl">${(+price / 100).toFixed(2)}</span>;
     }
+  };
+
+  const handleAddItemToCart = (item: any) => {
+    if (localStorage.getItem('cart')) {
+      let cart = JSON.parse(localStorage.getItem('cart') as string);
+
+      let indexItemExist = -1;
+      cart.forEach((cartItem: any, index: number) => {
+        if (cartItem.id === item.id) {
+          indexItemExist = index;
+        } else {
+          indexItemExist = -1;
+        }
+      });
+
+      if (indexItemExist === -1) {
+        cart = [
+          ...cart,
+          {
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            image: item.image,
+          },
+        ];
+      } else {
+        cart[indexItemExist].quantity = +cart[indexItemExist].quantity + 1;
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      localStorage.setItem(
+        'cart',
+        JSON.stringify([
+          {
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            image: item.image,
+            quantity: 1,
+          },
+        ])
+      );
+    }
+    setIsOpen();
   };
 
   return (
@@ -68,7 +114,17 @@ export default function ProductItem({
           </div>
         </Link>
         {renderPrice()}
-        <button className="w-full px-4 py-2 border border-primary border-solid mt-6 rounded hover:bg-white hover:text-black transition ease-out duration-200">
+        <button
+          className="w-full px-4 py-2 border border-primary border-solid mt-6 rounded hover:bg-white hover:text-black transition ease-out duration-200"
+          onClick={() =>
+            handleAddItemToCart({
+              id,
+              image,
+              name,
+              price: isSale && salePercentage ? ((+price / 100) * (1 - salePercentage / 100)).toFixed(2) : +price / 100,
+            })
+          }
+        >
           Add to Cart
         </button>
       </div>
